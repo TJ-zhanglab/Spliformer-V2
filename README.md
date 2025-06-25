@@ -46,12 +46,13 @@ python run.py \
 -   -A: Annotation file of human genome.  We created hg19/hg38 genome annotation file according to the GENCODE v39 gtf file. The files locate in the [./reference/](https://github.com/TJ-zhanglab/Spliformer-V2/tree/main/reference).
 -   -T: Tissues for prediction
 -   -G: Provide genotype in the VCF (1: provided; 0: not provided)
-**⚙️Optional parameters**
+  
+**⚙️ Optional parameters**
 
 
 -   -M: Mask predicted scores with annotated acceptor/donor gain and unannotated acceptor/donor loss. ```0: not masked; 1: masked``` (default: 0).
 
-## 📤Output VCF Format
+## 📤 Output VCF Format
 Format of Spliformer-V2 INFO field in the VCF: ALT|gene|increased acceptor usage score|decreased acceptor usage score|increased donor usage score|decreased donor usage score|Increased acceptor dis|Decreased acceptor dis|Increased donor dis|Decreased donor dis
 
 |Field                          |Disciption                         |
