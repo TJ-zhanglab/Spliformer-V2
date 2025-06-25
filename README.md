@@ -1,6 +1,6 @@
-# Spliformer-V2
+# 🧬 Spliformer-V2
 
-Spliformer-V2 is a deep-learning tool based on Segment-NT architecture that predicts RNA splicing usage accross 18 tissues based on pre-mRNA sequences(more details, see [paper](). Spliformer can take a VCF file containing variants of interest with its genotype as an input and predict acceptor/donor usage. 
+**Spliformer-V2** is a deep learning model based on the Segment-NT architecture for predicting RNA splicing usage across 18 human tissues using pre-mRNA sequences (more details, see [our preprint paper](). It supports VCF input with genotypes and outputs tissue-specific changes in splice site usage.
 
 ## ✨ Features
 
@@ -19,15 +19,20 @@ Python: 3.8.19
 
 PyTorch (GPU): 2.4.1
 
-We recommend creating a new Conda environment before using Spliformer-V2. You can first download Miniconda from https://docs.conda.io/en/latest/miniconda.html, then create a new environment named spliformerv2 using the following command:
-```
-conda env create -f spliformerV2.yml
-``` 
+### Step-by-step:
+1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+2. Clone the repository and install dependencies:
+    ```bash
+    git clone https://github.com/TJ-zhanglab/Spliformer-V2.git
+    cd Spliformer-V2
+    conda env create -f spliformerV2.yml
+    conda activate spliformerv2
+    ```
 
 ## 🚀 Usage
-After cloning the repository, run the example using the command below:
-```sh
-cd Spliformer-V2
+
+After setting up the environment, you can run an example prediction:
+```bash
 python run.py \
   -I ./example/input/input19.vcf \
   -O ./output/output.vcf \
@@ -45,7 +50,7 @@ python run.py \
 -   -R: Reference fasta file of human genome. Please download and unzip it to the reference folder first before making prediction from [GRCh37/hg19](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz) or [GRCh38/hg38](http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz).
 -   -A: Annotation file of human genome.  We created hg19/hg38 genome annotation file according to the GENCODE v39 gtf file. The files locate in the [./reference/](https://github.com/TJ-zhanglab/Spliformer-V2/tree/main/reference).
 -   -T: Tissues for prediction
--   -G: Provide genotype in the VCF (1: provided; 0: not provided)
+-   -G: Provide genotype in the VCF (1: yes; 0: no)
   
 **⚙️ Optional parameters**
 
@@ -53,7 +58,7 @@ python run.py \
 -   -M: Mask predicted scores with annotated acceptor/donor gain and unannotated acceptor/donor loss. ```0: not masked; 1: masked``` (default: 0).
 
 ## 📤 Output VCF Format
-Format of Spliformer-V2 INFO field in the VCF: ALT|gene|increased acceptor usage score|decreased acceptor usage score|increased donor usage score|decreased donor usage score|Increased acceptor dis|Decreased acceptor dis|Increased donor dis|Decreased donor dis
+The prediction results are stored in the INFO field of the output VCF in the following format: **ALT|gene|increased acceptor usage score|decreased acceptor usage score|increased donor usage score|decreased donor usage score|Increased acceptor dis|Decreased acceptor dis|Increased donor dis|Decreased donor dis**
 
 |Field                          |Disciption                         |
 |-------------------------------|-----------------------------|
