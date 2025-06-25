@@ -1,6 +1,6 @@
 # Spliformer-V2
 
-Spliformer-V2 is a deep-learning tool based on Segment-NT architecture that predicts RNA splicing usage accross 18 tissues based on pre-mRNA sequences(more details, see [paper]. Spliformer can take a VCF file containing variants of interest with its genotype as an input and predict acceptor/donor usage. 
+Spliformer-V2 is a deep-learning tool based on Segment-NT architecture that predicts RNA splicing usage accross 18 tissues based on pre-mRNA sequences(more details, see [paper](). Spliformer can take a VCF file containing variants of interest with its genotype as an input and predict acceptor/donor usage. 
 
 ## Installation
 
@@ -46,5 +46,5 @@ Format of Spliformer-V2 INFO field in the VCF: ALT|gene|increased acceptor usage
 |Decreased donor dis|The distance of a donor with maximum decreased score away from the variant|
 
 ## Cite us
-If you use Spliformer-V2 for prediction, please cite [paper]
+If you use Spliformer-V2 for prediction, please cite [paper]()
 
