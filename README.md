@@ -74,5 +74,5 @@ The prediction results are stored in the INFO field of the output VCF in the fol
 |Decreased donor dis|The distance of a donor with maximum decreased score away from the variant|
 
 ## 📚 Cite us
-If you use Spliformer-V2 for in your work, please cite [paper]()
+If you use Spliformer-V2 in your work, please cite [paper]()
 
