@@ -1,12 +1,12 @@
 # 🧬 Spliformer-V2
 
-**Spliformer-V2** is a deep learning model based on the Segment-NT architecture for predicting RNA splicing usage across 18 human tissues using pre-mRNA sequences (more details, see [our preprint paper](). It supports VCF input with genotypes and outputs tissue-specific changes in splice site usage.
+**Spliformer-V2** is a deep learning model that is based on the Segment-NT architecture to fine-tune on paired genome/transcriptome datasets for predicting RNA splicing usage across 18 human tissues using pre-mRNA sequences (more details, see [our preprint paper]().Spliformer-v2 includes 12 CNS tissues and 6 non-CNS tissues, representing so far the most complete splicing prediciton model for human brain regions and spinal cord tissues. It supports VCF input with genotypes and outputs tissue-specific changes in splice site usage.
 
 ## ✨ Features
 
 - Predicts splice site usage alterations from genetic variants  
 - Supports genotype-aware prediction  
-- Tissue-specific modeling across 18 human tissues  
+- Tissue-specific modeling across 18 human tissues (including 12 CNS tissues) 
 - Accepts standard VCF inputs  
 - Output in annotated VCF format
   
