@@ -1291,11 +1291,11 @@ class SegmentNT(EsmPreTrainedModel):
 
         # Remove CLS and EOS token
         B, L, D = sequence_output.shape
-        # 构造需要保留的位置索引（去掉 0 和 121）
+
         keep_indices = [i for i in range(L) if i not in [0, 121]]
         keep_indices = torch.tensor(keep_indices, device=sequence_output.device)
 
-        # 使用 index_select 从 dim=1 选取
+
         sequence_output = torch.index_select(sequence_output, dim=1, index=keep_indices)
                 
         # Invert the channels and sequence length channel
@@ -1313,7 +1313,6 @@ class SegmentNT(EsmPreTrainedModel):
         logits_a2=logits[:,720:,:,:]
         logits= logits_a1+logits_a2
         
-        # logits=logits[:,110:-109] #只看中间的501bp算loss
 
         return SequenceClassifierOutput(
             logits=logits,
