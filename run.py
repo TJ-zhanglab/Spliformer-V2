@@ -7,21 +7,9 @@ import torch.nn as nn
 from pyfaidx import Fasta
 import logging
 import pysam
-from model import SegmentNT
+from modeling_segment_nt_debug_psionly import SegmentNT
 from transformers import AutoTokenizer
 import os
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-# os.environ["CUDA_VISIBLE_DEVICES"] =  "1"
-# from multiprocessing import cpu_count
-
-# cpu_num = 8#cpu_count() # 自动获取最大核心数目
-# os.environ ['OMP_NUM_THREADS'] = str(cpu_num)
-# os.environ ['OPENBLAS_NUM_THREADS'] = str(cpu_num)
-# os.environ ['MKL_NUM_THREADS'] = str(cpu_num)
-# os.environ ['VECLIB_MAXIMUM_THREADS'] = str(cpu_num)
-# os.environ ['NUMEXPR_NUM_THREADS'] = str(cpu_num)
-# torch.set_num_threads(cpu_num)
-
 
 class Annotator:
     def __init__(self, ref_fasta, annotations):
@@ -162,7 +150,6 @@ def get_delta_scores(record, ann, mask, model, tokenizer, genotype, device):
                 x_ref=reverse_complement(x_ref)
                 x_alt=reverse_complement(x_alt)
             if genotype:
-                # pdb.set_trace()
                 if record.samples[0]['GT']==(1, 0) or record.samples[0]['GT']==(0, 1):
                     x_ref_concat=x_ref+'<eos>'+x_ref
                     x_alt_concat=x_alt+'<eos>'+x_ref
@@ -269,6 +256,7 @@ def main():
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     Modelpath='./weight2/'+str(args.T)
+   
     tokenizer = AutoTokenizer.from_pretrained(Modelpath, trust_remote_code=True)
     model=SegmentNT.from_pretrained(Modelpath,features=['acceptor', 'donor'])
     model.to(device)   
