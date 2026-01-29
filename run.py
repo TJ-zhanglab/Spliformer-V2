@@ -7,7 +7,7 @@ import torch.nn as nn
 from pyfaidx import Fasta
 import logging
 import pysam
-from modeling_segment_nt_debug_psionly import SegmentNT
+from model import SegmentNT
 from transformers import AutoTokenizer
 import os
 
